@@ -1,19 +1,35 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { PokemonCardProps } from "./Types"
 
 
-export default function PokemonCard( {pokemonData, currentScore, highestScore, setHighestScore, setCurrentScore}: PokemonCardProps ) {
+export default function PokemonCard({ pokemonData,  incrementScore, toggleReset}: PokemonCardProps) {
 
-    console.log("Pokemon card is called")
 
-    const [isClicked, setIsClicked] = useState(false)
+    const [isClicked, setIsClicked] = useState<boolean>(false);
 
-    console.log(pokemonData);
+    const clickHandler = () => {
+        // if clicked again
+        if (isClicked) {
+            // setIsReset, state changed
+           toggleReset();
+        }
+        // first time click, set true
+        setIsClicked(true)
+    }
+
+
+    // re-render with isCliked 1st time, get the score
+    useEffect(() => {
+        if (isClicked) {
+            incrementScore();
+        }
+    }, [isClicked])
 
     return (
-        <div key={pokemonData.id} className="pokemon-card">
+        <div 
+            className="pokemon-card"
+            onClick={clickHandler}>
             <img src={pokemonData.imageUrl} alt={pokemonData.name} />
-            <p className="pokemon-name">{pokemonData.name}</p>
         </div>
     )
 }

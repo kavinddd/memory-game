@@ -2,10 +2,10 @@ import { useState } from "react";
 import { DisplayProps } from "./Types";
 
 
-export default function Display( {isReset, setIsReset, currentScore, highestScore}: DisplayProps ) {
+export default function Display( {toggleReset , currentScore, highestScore}: DisplayProps ) {
 
-    const handleRestart = () => {
-        setIsReset(!isReset);
+    const clickHandle = () => {
+        toggleReset();
     }
 
     return (
@@ -15,7 +15,7 @@ export default function Display( {isReset, setIsReset, currentScore, highestScor
             <div className="display-score">
                 <span className="current-score"> Score: {currentScore} </span>
                 <span className="highest-score"> Highest Score: {highestScore} </span>
-                <button onClick={handleRestart}> Restart </button>
+                <button onClick={clickHandle}> Restart </button>
             </div>
 
             <div className="guide-information">

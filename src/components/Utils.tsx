@@ -11,11 +11,31 @@ export function getListRandomInteger(min: number, max: number, size: number): nu
 
     return result;
 }
+export function getUniqueListRandomInteger(min: number, max: number, size: number): number[] {
+    const result: number[] = [];
+
+    while (result.length != size) {
+        const randomNum: number = getRandomInteger(min, max);
+        if (!result.includes(randomNum)) {
+            result.push(randomNum)
+        }
+    }
+
+    return result;
+}
 
 export function shuffleArray<T>(arrayInput: T[]): T[] {
 
+    console.log(arrayInput.length);
+
+    if (arrayInput.length == 0){
+        return [];
+    }
+
+    console.log("Original Array", arrayInput);
+
     // copy, prevent mutable
-    let array = arrayInput.slice();
+    let array: T[] = [...arrayInput];
 
     console.log("Copied Array", array)
 

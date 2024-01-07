@@ -1,9 +1,9 @@
+import { MouseEventHandler } from "react";
 
 export type DisplayProps = {
-    isReset: boolean,
-    setIsReset: React.Dispatch<React.SetStateAction<boolean>>,
-    currentScore: number;
-    highestScore: number;
+    toggleReset: () => void,
+    currentScore: number,
+    highestScore: number,
 
 }
 
@@ -16,15 +16,12 @@ export type PokemonData = {
 export type CardsProps = {
     pokemonDataList: PokemonData[],
     currentScore: number;
-    highestScore: number;
-    setHighestScore: React.Dispatch<React.SetStateAction<number>>,
     setCurrentScore: React.Dispatch<React.SetStateAction<number>>,
+    toggleReset: () => void;
 }
 
 export type PokemonCardProps = {
-    pokemonData: PokemonData;
-    currentScore: number;
-    highestScore: number;
-    setHighestScore: React.Dispatch<React.SetStateAction<number>>,
-    setCurrentScore: React.Dispatch<React.SetStateAction<number>>,
+    pokemonData: PokemonData,
+    incrementScore: () => void;
+    toggleReset: () => void;
 }

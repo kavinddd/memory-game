@@ -3,40 +3,23 @@ import { CardsProps , PokemonData} from "./Types"
 import { shuffleArray } from "./Utils"
 import PokemonCard from "./PokemonCard"
 
-export default function Cards( {pokemonDataList, currentScore, highestScore, setCurrentScore, setHighestScore} : CardsProps ) {
+export default function Cards( {pokemonDataList, currentScore, setCurrentScore, toggleReset} : CardsProps ) {
 
-    // Problem is here, the first render, empty list is passed as a pokemonDataList
-    // so the shuffledData list will be empty, until we have some trigger
-    const [shuffledData, setShuffledData]  = useState(pokemonDataList);
+    // shuffle every re-render
+    const shuffledData: PokemonData[] = shuffleArray(pokemonDataList);
 
-    
+    const incrementScore = () : void => {
+        setCurrentScore(currentScore+1);
+    }
 
-
-    
-    console.log("Original: ", pokemonDataList)
-
-    console.log("Shuffled: ", shuffledData);
-
-    // click = swap data = re-render
-    // const handleClick = () => {
-    //     const shuffledArray = shuffleArray<PokemonData>(pokemonDataList);
-    //     setShuffledData(shuffledArray);
-    // }
-
-
-    const pokemonCards = shuffledData.map( (data) => {
-
-        console.log(data);
+    const pokemonCards: JSX.Element[] = shuffledData.map( (data: PokemonData) => {
         return <PokemonCard
+                key={data.id}
                 pokemonData={data}
-                currentScore={currentScore}
-                highestScore={highestScore}
-                setHighestScore={setHighestScore}
-                setCurrentScore={setCurrentScore}
+                incrementScore={incrementScore}
+                toggleReset={toggleReset}
                 />
     })
-
-
 
     return  (
         <div className="cards">
