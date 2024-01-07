@@ -1,4 +1,3 @@
-import { MouseEventHandler, useState } from "react"
 import { CardsProps , PokemonData} from "./Types"
 import { shuffleArray } from "./Utils"
 import PokemonCard from "./PokemonCard"

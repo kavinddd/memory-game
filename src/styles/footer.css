@@ -1,0 +1,12 @@
+.footer {
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(223, 218, 75, 0.815);
+}
+
+a:hover {
+  color: rgb(223, 218, 75);
+}

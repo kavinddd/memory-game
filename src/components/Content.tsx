@@ -9,8 +9,8 @@ const MIN_POKEMON_ID: number = 1;
 const MAX_POKEMON_ID: number = 1010;
 const DIFFICULTY : { [key: string] : number} = {
     easy : 8,
-    medium : 14,
-    hard: 20
+    medium : 12,
+    hard: 16
 }
 
 export default function Content() {
@@ -76,7 +76,6 @@ export default function Content() {
             <Display
                 currentScore={currentScore}
                 highestScore={highestScore}
-                toggleReset={toggleReset}
                 difficultyLevel={difficultyLevel}
                 setDifficultyLevel={setDifficultyLevel}
             />

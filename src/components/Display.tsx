@@ -1,13 +1,8 @@
-import { useState } from "react";
 import { DisplayProps } from "./Types";
 import "../styles/display.css"
 
 
-export default function Display({ toggleReset, currentScore, highestScore, difficultyLevel, setDifficultyLevel }: DisplayProps) {
-
-    const clickHandle = () => {
-        toggleReset();
-    }
+export default function Display({ currentScore, highestScore, difficultyLevel, setDifficultyLevel }: DisplayProps) {
 
     const generateDifficultyButtons = () => {
         const allDifficulties: string[] = ["easy", "medium", "hard"];
@@ -21,8 +16,9 @@ export default function Display({ toggleReset, currentScore, highestScore, diffi
         return buttons;
     }
 
-    const selectDifficultyHandle = (e) : void => {
-        const choseDifficulty = e.target.textContent
+    const selectDifficultyHandle = (e: React.MouseEvent<HTMLDivElement>) : void => {
+        const targetedButton: HTMLButtonElement = e.target as HTMLButtonElement;
+        const choseDifficulty: string = targetedButton.textContent ?? "easy";
 
         if (choseDifficulty === difficultyLevel) {
             return;

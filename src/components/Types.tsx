@@ -1,6 +1,5 @@
 
 export type DisplayProps = {
-    toggleReset: () => void,
     currentScore: number,
     highestScore: number,
     difficultyLevel: string,
