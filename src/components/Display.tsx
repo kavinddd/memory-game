@@ -3,11 +3,36 @@ import { DisplayProps } from "./Types";
 import "../styles/display.css"
 
 
-export default function Display( {toggleReset , currentScore, highestScore}: DisplayProps ) {
+export default function Display({ toggleReset, currentScore, highestScore, difficultyLevel, setDifficultyLevel }: DisplayProps) {
 
     const clickHandle = () => {
         toggleReset();
     }
+
+    const generateDifficultyButtons = () => {
+        const allDifficulties: string[] = ["easy", "medium", "hard"];
+        const buttons = allDifficulties.map((difficulty) => {
+            return (
+                <button className={difficulty === difficultyLevel ? "selected" : ""} >
+                    {difficulty}
+                </button>
+            )
+        })
+        return buttons;
+    }
+
+    const selectDifficultyHandle = (e) : void => {
+        const choseDifficulty = e.target.textContent
+
+        if (choseDifficulty === difficultyLevel) {
+            return;
+        }
+
+        setDifficultyLevel(choseDifficulty);
+    }
+
+    const buttons = generateDifficultyButtons();
+
 
     return (
 
@@ -23,10 +48,8 @@ export default function Display( {toggleReset , currentScore, highestScore}: Dis
                 <span className="highest-score"> Highest Score: {highestScore} </span>
             </div>
 
-            <div className="difficulty-buttons">
-                <button value="easy" > Easy </button>
-                <button value="medium"> Medium</button>
-                <button value="hard"> Hard</button>
+            <div className="difficulty-buttons" onClick={selectDifficultyHandle}>
+                {buttons}
             </div>
 
 

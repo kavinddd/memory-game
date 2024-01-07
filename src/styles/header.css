@@ -23,4 +23,5 @@ img.pokeball-icon {
     justify-content: center;
     align-items: center;
     padding: 0px;
+    text-transform: uppercase;
 }

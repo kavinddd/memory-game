@@ -3,6 +3,8 @@ export type DisplayProps = {
     toggleReset: () => void,
     currentScore: number,
     highestScore: number,
+    difficultyLevel: string,
+    setDifficultyLevel: React.Dispatch<React.SetStateAction<string>>
 
 }
 
@@ -14,13 +16,13 @@ export type PokemonData = {
 
 export type CardsProps = {
     pokemonDataList: PokemonData[],
-    currentScore: number;
+    currentScore: number,
     setCurrentScore: React.Dispatch<React.SetStateAction<number>>,
     toggleReset: () => void;
 }
 
 export type PokemonCardProps = {
     pokemonData: PokemonData,
-    incrementScore: () => void;
-    toggleReset: () => void;
+    incrementScore: () => void,
+    toggleReset: () => void,
 }
