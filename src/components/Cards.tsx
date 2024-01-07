@@ -2,6 +2,7 @@ import { MouseEventHandler, useState } from "react"
 import { CardsProps , PokemonData} from "./Types"
 import { shuffleArray } from "./Utils"
 import PokemonCard from "./PokemonCard"
+import "../styles/cards.css"
 
 export default function Cards( {pokemonDataList, currentScore, setCurrentScore, toggleReset} : CardsProps ) {
 
