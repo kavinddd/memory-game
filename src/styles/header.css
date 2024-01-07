@@ -1,0 +1,26 @@
+span {
+    display: inline-flex;
+}
+img.pokeball-icon {
+    width: 100px;
+    height: 100px;
+    padding: 0; 
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(1deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+}

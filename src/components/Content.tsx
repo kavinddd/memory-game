@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Cards from "./Cards";
 import Display from "./Display";
-import { DisplayProps, PokemonData } from "./Types";
+import { PokemonData } from "./Types";
 import { getUniqueListRandomInteger } from "./Utils";
 
 const MIN_POKEMON_ID = 1;
